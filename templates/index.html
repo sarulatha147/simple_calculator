@@ -1,1 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Marks Calculator</title>
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
 
+<div class="container">
+    <h1>Student Marks Calculator</h1>
+
+    <form method="POST">
+        <input type="text" name="name"
+               placeholder="Student Name" required>
+
+        <input type="number" name="m1"
+               placeholder="Subject 1 Marks" min="0" max="100" required>
+
+        <input type="number" name="m2"
+               placeholder="Subject 2 Marks" min="0" max="100" required>
+
+        <input type="number" name="m3"
+               placeholder="Subject 3 Marks" min="0" max="100" required>
+
+        <button type="submit">Calculate Result</button>
+    </form>
+
+    {% if result %}
+    <div class="result">
+        <h2>Student Result</h2>
+        <p>Name: {{ result.name }}</p>
+        <p>Total: {{ result.total }} / 300</p>
+        <p>Average: {{ result.average }}%</p>
+        <h2>Grade: {{ result.grade }}</h2>
+    </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
